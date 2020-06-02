@@ -11,8 +11,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -25,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'none',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
+            marginLeft: theme.spacing(2),
         },
     },
     search: {
@@ -36,10 +36,9 @@ const useStyles = makeStyles((theme) => ({
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,
-        width: '100%',
+        width: 500,
         [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
+            marginLeft: theme.spacing(2),
         },
     },
     searchIcon: {
@@ -99,10 +98,6 @@ export default function PrimarySearchAppBar() {
         handleMobileMenuClose();
     };
 
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
-
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -114,8 +109,7 @@ export default function PrimarySearchAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
         </Menu>
     );
 
@@ -146,8 +140,8 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static">
-                <Toolbar>
+            <AppBar position="static" style={{background: "darkred"}}>
+                <Toolbar variant="dense">
                     <IconButton
                         edge="start"
                         className={classes.menuButton}
@@ -156,9 +150,13 @@ export default function PrimarySearchAppBar() {
                     >
                         <MenuIcon/>
                     </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        BookStore
+                    <Typography className={classes.title} variant="h6" color="inherit" noWrap style={{marginLeft: 0}}>
+                        <b><i>BookStore</i></b>
                     </Typography>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon/>
@@ -172,13 +170,15 @@ export default function PrimarySearchAppBar() {
                             inputProps={{'aria-label': 'search'}}
                         />
                     </div>
-                    <div className={classes.grow}/>
-                    <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="cart">
+                    <div>
+                        <IconButton aria-label="current user" aria-controls="menu-appbar"
+                                    aria-haspopup="true" color="inherit" style={{marginLeft: 300}}>
                             <Badge badgeContent={4} color="secondary">
-                                <ShoppingCartIcon/>
+                                <AddShoppingCartIcon/>
                             </Badge>
                         </IconButton>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <IconButton
                             edge="end"
                             aria-label="account of current user"
@@ -188,17 +188,6 @@ export default function PrimarySearchAppBar() {
                             color="inherit"
                         >
                             <AccountCircle/>
-                        </IconButton>
-                    </div>
-                    <div className={classes.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
-                        >
-                            <MoreIcon/>
                         </IconButton>
                     </div>
                 </Toolbar>
