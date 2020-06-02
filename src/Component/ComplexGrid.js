@@ -19,20 +19,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 600,
         marginTop: theme.spacing(6),
     },
-    //////////////////
-    // paper: {
-    //     marginTop: theme.spacing(3),
-    //     marginBottom: theme.spacing(3),
-    //     padding: theme.spacing(2),
-    //     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
-    //         marginTop: theme.spacing(6),
-    //         marginBottom: theme.spacing(6),
-    //         padding: theme.spacing(3),
-    //     },
-    // },
-
-    /////////////
-
     image: {
         width: 128,
         height: 128,
@@ -72,14 +58,14 @@ export default function ComplexGrid() {
                                 </Typography>
                                 <br/>
                                 <Grid item direction={"row"} justify={"flex-start"} spacing={10}>
-                                <Typography align={"left"}  variant="body2">
-                                    <AddCircleOutlineIcon fontSize={"large"} color={"primary"}/>
-                                    <CheckBoxOutlineBlankIcon fontSize={"large"} color={"disabled"}/>
-                                    <RemoveCircleOutlineIcon fontSize={"large"} color={"secondary"}/>
-                                    <Typography align={"center"}  >
-                                         Remove
+                                    <Typography align={"left"} variant="body2">
+                                        <AddCircleOutlineIcon fontSize={"large"} color={"primary"}/>
+                                        <CheckBoxOutlineBlankIcon fontSize={"large"} color={"disabled"}/>
+                                        <RemoveCircleOutlineIcon fontSize={"large"} color={"secondary"}/>
+                                        <Typography align={"center"}>
+                                            Remove
+                                        </Typography>
                                     </Typography>
-                                </Typography>
                                 </Grid>
                             </Grid>
                             <Grid>
